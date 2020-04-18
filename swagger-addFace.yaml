@@ -1,0 +1,60 @@
+swagger: '2.0'
+info:
+  description: "This is a API for sending username and password for Cloud Assignment 2."
+  version: 1.0.0
+  title: "Send Face Data CCA 2"
+schemes:
+- https
+basePath: /v1
+produces:
+  - application/json
+paths:
+  /face:
+    post:
+      tags:
+      - "face"
+      summary: "Adds a new face to be indexed in the collection"
+
+      operationId: addFace
+      
+      parameters:
+      - in: body
+        name: body
+        description: "Face object that needs to be added to the collection"
+        required: true
+        schema:
+          $ref: "#/definitions/Face"
+      responses:
+        200:
+          description: Added successfully
+          schema:
+            $ref: "#/definitions/ApiResponse"
+        403:
+          description: Unauthorized
+        500:
+          description: Unexpected Error
+
+definitions:
+  Face:
+    type: object
+    required:
+    - faceID
+    - name
+    - phoneNumber
+    properties:
+      faceID:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+  ApiResponse:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      type:
+        type: string
+      message:
+        type: string

@@ -1,0 +1,14 @@
+
+
+.photo{
+    padding: 25px;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.details{
+    padding-left: 25%;
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+}
